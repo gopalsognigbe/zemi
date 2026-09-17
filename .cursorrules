@@ -1,0 +1,25 @@
+# ZEMi — Règles du projet
+
+## Marque
+- L'app s'appelle « ZEMi » — toujours. Ne jamais inventer d'autres noms.
+- Tout le texte visible par l'utilisateur est en FRANÇAIS. Le code, les commentaires et les noms de fichiers en anglais.
+
+## Produit
+- Deux activités : courses (« course ») et livraisons (« livraison_simple » / « livraison_express »).
+- Portefeuille en boucle fermée : les clients rechargent + paient ; les conducteurs gagnent + retirent. Le cash est le mode par défaut pour les courses.
+- Les prix viennent d'un moteur côté serveur ; les paramètres vivent dans la table « pricing_config ». Ne jamais coder les prix en dur.
+
+## Architecture
+- UNE section = UN fichier. Fichiers de composants petits et ciblés, pour que les modifications restent chirurgicales.
+- Les routes uniquement dans src/app. L'UI réutilisable dans src/components. Pas de logique métier dans les écrans — l'extraire dans hooks/ ou utils/.
+- Utiliser l'alias @/*. Pas de chemins relatifs profonds.
+- TypeScript strict. Pas de « any » sans commentaire justifié.
+
+## UI / Thème
+- Importer couleurs, espacements, radius depuis src/constants/theme.ts. Ne jamais coder en dur des hex ou des nombres magiques dans les composants.
+- Couleur principale = vert (#0F4D33), accent = ambre (#F5B301).
+
+## Comportement
+- Ne pas ajouter de dépendance sans en dire la raison.
+- Ne pas construire de fonctionnalités hors du périmètre du prompt en cours.
+- Préférer un code clair et lisible (maintenu avec l'aide de l'IA).
